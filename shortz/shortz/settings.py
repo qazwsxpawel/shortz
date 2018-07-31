@@ -124,3 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Dev settings (ideally in a separate file)
+DEV_HOST = 'http://localhost:8000/'  # TODO: replace with actually getting host, say: request.get_host()?

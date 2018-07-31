@@ -23,5 +23,6 @@ from shortener import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('shorten-url/', views.shorten_url)
+    path('shorten_url/', views.shorten_url),
+    path('<code>', views.resolve_to_full_url)
 ]
