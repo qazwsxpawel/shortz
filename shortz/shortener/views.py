@@ -16,6 +16,7 @@ def shorten_url(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 def resolve_to_full_url(request, code=None):
     full_url = URLEntry.objects.get(code=code).url
     return redirect(full_url)

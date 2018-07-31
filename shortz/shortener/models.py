@@ -6,6 +6,7 @@ from django.core.validators import URLValidator
 
 from shortz import settings
 
+
 class URLEntry(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     url = models.URLField(validators=[URLValidator()])
@@ -29,5 +30,5 @@ class URLEntry(models.Model):
     def save(self, *args, **kwargs):
         shortcode = self._shortcode(self.url).decode('utf-8')
         self.code = shortcode
-        self.shortened_url = '{}{}'.format(settings.DEV_HOST, shortcode)
+        self.shortened_url = '{}{}'.format(settings.DEV_HOST, shortcode)  # TODO: replace settings.DEV_HOST
         super().save(*args, **kwargs)
